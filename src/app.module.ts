@@ -31,8 +31,8 @@ ConfigHelper.load();
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       ssl: process.env.NODE_ENV == 'production',
-      autoLoadEntities: process.env.NODE_ENV == 'test', // models will be loaded automatically (you don't have to explicitly specify the entities: [] array)
-      synchronize: process.env.NODE_ENV == 'test', // your entities will be synced with the database (ORM will map entities definitions to corresponding SQL tabled), every time you run the application (recommended: disable in the production)
+      autoLoadEntities: process.env.NODE_ENV != 'test', // models will be loaded automatically (you don't have to explicitly specify the entities: [] array)
+      synchronize: process.env.NODE_ENV != 'test', // your entities will be synced with the database (ORM will map entities definitions to corresponding SQL tabled), every time you run the application (recommended: disable in the production)
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       logging: false,
     }),
